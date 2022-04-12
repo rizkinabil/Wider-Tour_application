@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "stripe/stripe-php": "^7.52",
+        "swiftmailer/swiftmailer": "6.3",
         "thomaswelton/laravel-gravatar": "~1.0"
     },
     "require-dev": {

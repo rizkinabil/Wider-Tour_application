@@ -13,10 +13,13 @@ class WelcomeController extends Controller
     public function index()
     {
 
-        $search = request()->query('search');
-        if (request()->query('search')) {
-            $destinations = Destinations::where('title', 'LIKE', "%{$search}%")->simplePaginate(3);
-        } else {
+        if (request('search')) {
+            $destinations = Destinations::where('title', 'LIKE', `%`.request('search').`%`)->simplePaginate(3);
+        }elseif(request('price')){
+            $destinations = Destinations::where('pricing', 'LIKE', `%`.request('price').`%`)->simplePaginate(3);
+
+        }
+        else {
             $destinations = Destinations::simplePaginate(3);
         }
 
@@ -29,7 +32,8 @@ class WelcomeController extends Controller
 
     public function about()
     {
-        return view('about');
+        return view('about')->with('categories', Category::all())
+            ->with('tags', Tag::all());;
     }
 
     public function packages()

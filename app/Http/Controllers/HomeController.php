@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
+use App\Destinations;
+use App\Category;
+use App\Tag;
 
 use Illuminate\Http\Request;
 

@@ -56,7 +56,7 @@ Route::group(['middleware' => ['isVerified']], function () {
     Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
 });
 
-Route::get('/home', [
+Route::get('/', [
     'uses' => 'WelcomeController@index',
     'as' => 'index'
 ]);
@@ -112,6 +112,8 @@ Route::get('/stripe', [
     'uses' => 'WelcomeController@stripe',
     'as' => 'stripe'
 ]);
+
+Route::get('/search', 'HomeController@search');
 
 
 
